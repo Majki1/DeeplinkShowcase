@@ -58,6 +58,23 @@ export default function HomeScreen() {
         </Text>
       </View>
 
+      <View style={[styles.section, { backgroundColor: '#e3f2fd', borderColor: '#90caf9', borderWidth: 1 }]}>
+        <Text style={[styles.sectionTitle, { color: '#1565c0' }]}>
+          ℹ️ Edge Case 4: Universal Links
+        </Text>
+        <Text style={styles.body}>
+          app.json now includes associatedDomains (iOS) and intentFilters
+          (Android). For these to work, you must host an AASA file at:
+        </Text>
+        <Text style={[styles.mono, { marginTop: 8 }]}>
+          https://yourdomain.com/.well-known/apple-app-site-association
+        </Text>
+        <Text style={[styles.body, { marginTop: 8 }]}>
+          Content-Type must be application/json. Without it, universal links
+          silently fall back to Safari — no error, no logs.
+        </Text>
+      </View>
+
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Test Deep Links</Text>
         <Text style={styles.sectionDescription}>
