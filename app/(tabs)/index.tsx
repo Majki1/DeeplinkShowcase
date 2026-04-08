@@ -34,9 +34,18 @@ export default function HomeScreen() {
           ✅ Edge Case 1: Fixed
         </Text>
         <Text style={styles.body}>
-          getInitialURL is now deferred until onReady fires. Foreground links
-          are handled via Linking.addEventListener. Compare this branch's
-          _layout.tsx with the previous branch to see the diff.
+          getInitialURL is deferred until onReady. See branch 03-killed-app-fix.
+        </Text>
+      </View>
+
+      <View style={[styles.section, { backgroundColor: '#fff3f3', borderColor: '#ffcdd2', borderWidth: 1 }]}>
+        <Text style={[styles.sectionTitle, { color: '#c62828' }]}>
+          🔴 Edge Case 2: unstable_settings Bug
+        </Text>
+        <Text style={styles.body}>
+          This branch exports an empty unstable_settings object from the tab
+          layout. Try opening a deep link while the app is running — nothing
+          will happen.
         </Text>
       </View>
 
