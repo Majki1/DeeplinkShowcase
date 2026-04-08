@@ -98,6 +98,19 @@ export default function HomeScreen() {
         </Text>
       </View>
 
+      <View style={[styles.section, { backgroundColor: '#f3e5f5', borderColor: '#ce93d8', borderWidth: 1 }]}>
+        <Text style={[styles.sectionTitle, { color: '#7b1fa2' }]}>
+          🧪 Edge Case 5: Testing Tools
+        </Text>
+        <Text style={styles.body}>
+          You can't test deep links properly in the simulator's Safari.{'\n\n'}
+          iOS: npx uri-scheme open "deeplinkdemo://product/123" --ios{'\n\n'}
+          Android: adb shell am start -W -a android.intent.action.VIEW -d
+          "deeplinkdemo://product/123"{'\n\n'}
+          See TESTING.md for the full pre-ship checklist.
+        </Text>
+      </View>
+
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Test Deep Links</Text>
         <Text style={styles.sectionDescription}>
