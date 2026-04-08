@@ -38,14 +38,13 @@ export default function HomeScreen() {
         </Text>
       </View>
 
-      <View style={[styles.section, { backgroundColor: '#fff3f3', borderColor: '#ffcdd2', borderWidth: 1 }]}>
-        <Text style={[styles.sectionTitle, { color: '#c62828' }]}>
-          🔴 Edge Case 2: unstable_settings Bug
+      <View style={[styles.section, { backgroundColor: '#f1f8e9', borderColor: '#c5e1a5', borderWidth: 1 }]}>
+        <Text style={[styles.sectionTitle, { color: '#2e7d32' }]}>
+          ✅ Edge Case 2: Fixed
         </Text>
         <Text style={styles.body}>
-          This branch exports an empty unstable_settings object from the tab
-          layout. Try opening a deep link while the app is running — nothing
-          will happen.
+          unstable_settings removed. initialRouteName set directly on Tabs.
+          See branch 05-unstable-settings-fix.
         </Text>
       </View>
 
