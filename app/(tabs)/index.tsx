@@ -75,6 +75,29 @@ export default function HomeScreen() {
         </Text>
       </View>
 
+      <View style={[styles.section, { backgroundColor: '#fff8e1', borderColor: '#ffe082', borderWidth: 1 }]}>
+        <Text style={[styles.sectionTitle, { color: '#f57f17' }]}>
+          ⚠️ Edge Case 4b: The Expo Go Trap
+        </Text>
+        <Text style={styles.body}>
+          In Expo Go, your custom scheme doesn't exist. Compare these two URLs:
+        </Text>
+        <View style={{ marginTop: 12, gap: 8 }}>
+          <View style={styles.linkRow}>
+            <Text style={styles.linkLabel}>❌ Hardcoded (standalone only)</Text>
+            <Text style={styles.linkUrl}>deeplinkdemo://product/123</Text>
+          </View>
+          <View style={styles.linkRow}>
+            <Text style={styles.linkLabel}>✅ Linking.createURL (always works)</Text>
+            <Text style={styles.linkUrl}>{dynamicUrl}</Text>
+          </View>
+        </View>
+        <Text style={[styles.body, { marginTop: 8 }]}>
+          In Expo Go the dynamic URL uses exp:// instead of deeplinkdemo://.
+          Always use Linking.createURL() in your code.
+        </Text>
+      </View>
+
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Test Deep Links</Text>
         <Text style={styles.sectionDescription}>
