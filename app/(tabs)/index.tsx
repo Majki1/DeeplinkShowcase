@@ -29,6 +29,17 @@ export default function HomeScreen() {
         Warns You About"
       </Text>
 
+      <View style={[styles.section, { backgroundColor: '#fff3f3', borderColor: '#ffcdd2', borderWidth: 1 }]}>
+        <Text style={[styles.sectionTitle, { color: '#c62828' }]}>
+          🔴 Edge Case 1: Killed-App Bug
+        </Text>
+        <Text style={styles.body}>
+          This branch has NO getInitialURL handling. If you build this with EAS,
+          kill the app, then open a deep link — it will land on Home instead of
+          the target route.
+        </Text>
+      </View>
+
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Test Deep Links</Text>
         <Text style={styles.sectionDescription}>
