@@ -1,9 +1,23 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useNavigationState } from '@react-navigation/native';
+
+// ✅ EDGE CASE 3 FIX: Check if there's a screen below this modal.
+// If the user arrived via deep link, the stack is empty — show "Close"
+// instead of "Back" and navigate to the tabs root.
 
 export default function ProductModal() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
+  const canGoBack = useNavigationState((state) => state?.index > 0);
+
+  const handleDismiss = () => {
+    if (canGoBack) {
+      router.back();
+    } else {
+      router.replace('/(tabs)');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -16,9 +30,17 @@ export default function ProductModal() {
         </Text>
       </View>
 
-      <Pressable onPress={() => router.back()} style={styles.button}>
-        <Text style={styles.buttonText}>← Back</Text>
+      <Pressable onPress={handleDismiss} style={styles.button}>
+        <Text style={styles.buttonText}>
+          {canGoBack ? '← Back' : '✕ Close'}
+        </Text>
       </Pressable>
+
+      {!canGoBack && (
+        <Text style={styles.hint}>
+          No back stack — you arrived here via deep link
+        </Text>
+      )}
     </View>
   );
 }
@@ -70,5 +92,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
+  },
+  hint: {
+    fontSize: 12,
+    color: '#adb5bd',
+    fontStyle: 'italic',
   },
 });
