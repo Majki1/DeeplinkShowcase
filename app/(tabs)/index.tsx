@@ -48,6 +48,17 @@ export default function HomeScreen() {
         </Text>
       </View>
 
+      <View style={[styles.section, { backgroundColor: '#fff3f3', borderColor: '#ffcdd2', borderWidth: 1 }]}>
+        <Text style={[styles.sectionTitle, { color: '#c62828' }]}>
+          🔴 Edge Case 3: Modal Back Navigation Bug
+        </Text>
+        <Text style={styles.body}>
+          Deep link to deeplinkdemo://product/123 from a killed app. The modal
+          opens but the back button goes nowhere — there's no screen below it
+          in the stack.
+        </Text>
+      </View>
+
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Test Deep Links</Text>
         <Text style={styles.sectionDescription}>
